@@ -63,6 +63,8 @@
 		<Unit filename="Source/States/SMainMenu.h" />
 		<Unit filename="Source/States/SPlaying.cpp" />
 		<Unit filename="Source/States/SPlaying.h" />
+		<Unit filename="Source/Util/Random.cpp" />
+		<Unit filename="Source/Util/Random.h" />
 		<Unit filename="Source/Util/Singleton.h" />
 		<Unit filename="Source/main.cpp" />
 		<Extensions>

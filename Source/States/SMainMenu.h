@@ -21,11 +21,11 @@ namespace State
             private:
                 void reset();
 
-                sf::RectangleShape sprite;
+                sf::RectangleShape m_sprite;
 
 
-                sf::Time lifeTime;
-                sf::Time deathTime;
+                sf::Time m_lifeTime;
+                sf::Time m_deathTime;
         };
 
     class MainMenu : public StateBase
