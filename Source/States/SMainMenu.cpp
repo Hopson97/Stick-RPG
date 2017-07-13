@@ -8,15 +8,36 @@
 
 namespace State
 {
+    //bubble :o
+    Bubble::Bubble()
+    {
+
+    }
+
+    void Bubble::update()
+    {
+
+    }
+
+    void Bubble::draw(sf::RenderWindow& window)
+    {
+        window.draw(m_sprite);
+    }
+
+    void Bubble::reset()
+    {
+
+    }
+
+
+
     MainMenu::MainMenu(Application& app)
     :   StateBase   (app)
     {
         m_menuMusic.openFromFile("res/music/menu.ogg");
         m_menuMusic.play();
 
-        m_banner.setSize({
-                         app.getWindow().getSize().x,
-                         200});
+        m_banner.setSize({ (float)app.getWindow().getSize().x, 200.0f});
         m_banner.setTexture(&ResourceHolder::getTexure("logo"));
     }
 

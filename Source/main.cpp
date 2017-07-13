@@ -4,7 +4,7 @@
 
 int main()
 {
-    Application app("Change Me");
+    Application app("Stick RPG V0.1");
     app.runMainLoop();
 
     return 0;
