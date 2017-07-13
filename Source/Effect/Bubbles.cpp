@@ -5,7 +5,7 @@
 #include "../ResourceManager/ResourceHolder.h"
 
 constexpr static int    SIZE            = 25,
-                        MIN_LIFE_SECS   = 4,
+                        MIN_LIFE_SECS   = 6,
                         MAX_LIFE_SECS   = 8;
 
 //bubble :o
@@ -18,7 +18,7 @@ Bubble::Bubble()
 
 void Bubble::update(float dt)
 {
-    doFade();
+
 
     m_sprite.move(sin(m_lifeTime.getElapsedTime().asSeconds()) * dt, -ySpeed * dt);
     m_sprite.setTexture(&ResourceHolder::getTexure("bubble"));
@@ -27,6 +27,8 @@ void Bubble::update(float dt)
     {
         reset();
     }
+
+    doFade();
 }
 
 void Bubble::doFade()
