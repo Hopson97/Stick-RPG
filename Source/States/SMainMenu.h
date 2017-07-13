@@ -15,7 +15,7 @@ namespace State
         {
             public:
                 Bubble      ();
-                void update ();
+                void update (float dt);
                 void draw   (sf::RenderWindow& window);
 
             private:
@@ -24,8 +24,12 @@ namespace State
                 sf::RectangleShape m_sprite;
 
 
-                sf::Time m_lifeTime;
-                sf::Time m_deathTime;
+                sf::Clock   m_lifeTime;
+                sf::Time    m_deathTime;
+
+                float ySpeed;
+
+                float m_normalisedCycle;
         };
 
     class MainMenu : public StateBase
@@ -44,7 +48,7 @@ namespace State
             sf::Music m_menuMusic;
             sf::RectangleShape m_banner;
 
-            std::array<Bubble, 5> m_bubbles;
+            std::array<Bubble, 18> m_bubbles;
     };
 }
 

@@ -8,8 +8,8 @@ class Random
     public:
         static Random& get();
 
-        int intInRange      (int low, int high);
-        int floatInRange    (float low, float high);
+        int     intInRange      (int low, int high);
+        float   floatInRange    (float low, float high);
 
     private:
         Random();

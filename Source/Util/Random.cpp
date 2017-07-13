@@ -14,7 +14,7 @@ int Random::intInRange(int low, int high)
     return dist(m_randomNumberEngine);
 }
 
-int Random::floatInRange(float low, float high)
+float Random::floatInRange(float low, float high)
 {
     std::uniform_real_distribution<float> dist(low, high);
     return dist(m_randomNumberEngine);

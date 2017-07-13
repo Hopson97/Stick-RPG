@@ -9,6 +9,7 @@ Application::Application(std::string&& appName)
 :   m_window    ({1280, 720}, std::move(appName))
 {
     m_window.setFramerateLimit(60);
+    m_window.setPosition({0, 0});
     pushState<State::MainMenu>(*this);
 }
 
