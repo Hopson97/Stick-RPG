@@ -18,7 +18,7 @@ Bubble::Bubble()
 
 void Bubble::update(float dt)
 {
-    constexpr auto p = 3.14159f / 2.0f;
+    doFade();
 
     m_sprite.move(sin(m_lifeTime.getElapsedTime().asSeconds()) * dt, -ySpeed * dt);
     m_sprite.setTexture(&ResourceHolder::getTexure("bubble"));
@@ -27,18 +27,30 @@ void Bubble::update(float dt)
     {
         reset();
     }
-
-    auto time       = m_lifeTime.getElapsedTime().asSeconds();
-    auto deathTime  = m_deathTime.asSeconds();
-    auto fade  = (std::sin((time * (p / deathTime)) * 2 ));
-    auto alpha = fade * 255;
-    auto c = sf::Color::White;
-    auto o = sf::Color::Black;
-    c.a = alpha;
-    o.a = alpha;
-    m_sprite.setFillColor   (c);
-    m_sprite.setOutlineColor(o);
 }
+
+void Bubble::doFade()
+{
+    constexpr auto halfPi = 3.14159f / 2;
+
+    auto fillColour     = sf::Color::White;
+    auto outlineColour  = sf::Color::Black;
+
+    auto timeLived = m_lifeTime.getElapsedTime().asSeconds();
+    auto deathTime = m_deathTime.asSeconds();
+
+    auto result = std::sin((timeLived * (halfPi / deathTime)) * 2 );
+
+
+    auto alphaValue = result * 255;
+
+    fillColour.a    = alphaValue;
+    outlineColour.a = alphaValue;
+
+    m_sprite.setFillColor   (fillColour);
+    m_sprite.setOutlineColor(outlineColour);
+}
+
 
 void Bubble::draw(sf::RenderWindow& window)
 {

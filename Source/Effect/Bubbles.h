@@ -13,6 +13,8 @@ class Bubble
     private:
         void reset();
 
+        void doFade();
+
         sf::CircleShape m_sprite;
 
 
