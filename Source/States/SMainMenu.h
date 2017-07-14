@@ -37,9 +37,11 @@ namespace State
         private:
             void initMenu();
 
+            void addAttribute(std::string&& name, int& stat);
+
             sf::Music m_menuMusic;
 
-            std::array<Bubble, 16> m_bubbles;
+            std::array<Bubble, 32> m_bubbles;
 
             GUI::ColumnMenu m_frontMenu;
             GUI::ColumnMenu m_statSelectionMenu;

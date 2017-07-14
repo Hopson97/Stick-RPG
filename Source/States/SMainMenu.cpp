@@ -17,13 +17,17 @@ namespace State
     MainMenu::MainMenu(Application& app)
     :   StateBase   (app)
     ,   m_frontMenu         (0.0f)
-    ,   m_statSelectionMenu (20.0f)
+    ,   m_statSelectionMenu (0.0f)
     {
         m_menuMusic.openFromFile("res/music/menu.ogg");
         m_menuMusic.play();
         m_menuMusic.setLoop(true);
 
         initMenu();
+
+        m_skillPointsDisplay.move(0, 220);
+        m_skillPointsDisplay.setFont(ResourceHolder::getFont("arial"));
+        m_skillPointsDisplay.setCharacterSize(20);
     }
 
     MainMenu::~MainMenu()
@@ -47,6 +51,11 @@ namespace State
         {
             bubble.update(dt);
         }
+
+        m_skillPointsDisplay.setString("Stats: \n\
+         Intelligence: " + std::to_string(m_stats.intelligence) + "\n\
+         Charm:        " + std::to_string(m_stats.charm)        + "\n\
+         \nSkill Points Remaining: " + std::to_string(m_skillPoints));
     }
 
     void MainMenu::fixedUpdate(float dt)
@@ -54,6 +63,12 @@ namespace State
 
     void MainMenu::draw(sf::RenderWindow& window)
     {
+        if (m_menuState == Menu_State::Attribute)
+        {
+            window.draw(m_skillPointsDisplay);
+        }
+
+
         for (auto& bubble : m_bubbles)
         {
             bubble.draw(window);
@@ -64,7 +79,7 @@ namespace State
     void MainMenu::initMenu()
     {
         m_frontMenu.addComponent<GUI::Banner>(ResourceHolder::getTexure("logo"),
-                                              sf::Vector2f((float)WINDOW_WIDTH, GUI::BASE_HEIGHT * 1.5));
+                                              sf::Vector2f((float)WINDOW_WIDTH, GUI::BASE_HEIGHT * 2));
 
         m_frontMenu.addComponent<GUI::BasicButton>("Play",
         [&]()
@@ -81,41 +96,17 @@ namespace State
             m_pApplication->popState();
         });
 
-        m_statSelectionMenu.addComponent<GUI::VariableButton>("Charm",
+        m_statSelectionMenu.addComponent<GUI::Banner>(ResourceHolder::getTexure("stat_ban"),
+                                              sf::Vector2f((float)WINDOW_WIDTH, GUI::BASE_HEIGHT * 2));
+
+        m_statSelectionMenu.addComponent<GUI::BasicButton>("Continue To Game!",
         [&]()
         {
-            if (m_skillPoints > 0)
-            {
-                m_stats.charm++;
-                m_skillPoints--;
-            }
-        },
-        [&]()
-        {
-            if (m_stats.charm > 0)
-            {
-                m_stats.charm--;
-                m_skillPoints++;
-            }
+
         });
 
-        m_statSelectionMenu.addComponent<GUI::VariableButton>("Intelligence",
-        [&]()
-        {
-            if (m_skillPoints > 0)
-            {
-                m_stats.intelligence++;
-                m_skillPoints--;
-            }
-        },
-        [&]()
-        {
-            if (m_stats.intelligence > 0)
-            {
-                m_stats.intelligence--;
-                m_skillPoints++;
-            }
-        });
+        addAttribute("Charm",           m_stats.charm);
+        addAttribute("Intelligence",    m_stats.intelligence);
 
         m_statSelectionMenu.addComponent<GUI::BasicButton>("Back",
         [&]()
@@ -123,9 +114,29 @@ namespace State
             m_menuState = Menu_State::Front;
             m_activeMenu = &m_frontMenu;
         });
-
-
     }
+
+    void MainMenu::addAttribute(std::string&& name, int& stat)
+    {
+        m_statSelectionMenu.addComponent<GUI::VariableButton>(std::move(name),
+        [&]()
+        {
+            if (m_skillPoints > 0)
+            {
+                stat++;
+                m_skillPoints--;
+            }
+        },
+        [&]()
+        {
+            if (stat > 0)
+            {
+                stat--;
+                m_skillPoints++;
+            }
+        });
+    }
+
 
 
 }
