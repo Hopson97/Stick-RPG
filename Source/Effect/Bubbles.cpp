@@ -3,7 +3,7 @@
 #include <iostream>
 
 #include "../Util/Random.h"
-#include "Application.h"
+#include "../Application.h"
 
 #include "../ResourceManager/ResourceHolder.h"
 

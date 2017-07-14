@@ -6,10 +6,8 @@
 #include <array>
 
 #include "SBase.h"
-#include "GUIMeni/ColumnMenu.h"
-
+#include "../GUIMeni/ColumnMenu.h"
 #include "../Effect/Bubbles.h"
-
 #include "../Player/Stats.h"
 
 class Application;

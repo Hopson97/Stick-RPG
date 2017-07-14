@@ -1,7 +1,7 @@
 #include "VariableButton.h"
 #include "ColumnMenu.h"
 
-#include "ResourceManager/ResourceHolder.h"
+#include "../ResourceManager/ResourceHolder.h"
 
 namespace GUI
 {

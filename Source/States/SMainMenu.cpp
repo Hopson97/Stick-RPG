@@ -2,14 +2,14 @@
 
 #include <iostream>
 
-#include "Application.h"
+#include "../Application.h"
 
 #include "../Util/Random.h"
 #include "../ResourceManager/ResourceHolder.h"
 
-#include "GUIMeni/BasicButton.h"
-#include "GUIMeni/VariableButton.h"
-#include "GUIMeni/Banner.h"
+#include "../GUIMeni/BasicButton.h"
+#include "../GUIMeni/VariableButton.h"
+#include "../GUIMeni/Banner.h"
 
 
 namespace State
