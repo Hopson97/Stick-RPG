@@ -13,7 +13,7 @@ namespace GUI
 
             void setPosition(const sf::Vector2f& position) override;
 
-            void onUpdate   (const sf::RenderWindow& window) override;
+            void onUpdate   (const sf::RenderWindow& window, sf::Event e) override;
             void onDraw     (sf::RenderWindow& window) override;
 
         private:

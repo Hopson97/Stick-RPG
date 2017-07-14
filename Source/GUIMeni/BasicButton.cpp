@@ -31,9 +31,9 @@ namespace GUI
                      m_label.getGlobalBounds().height / 2);
     }
 
-    void BasicButton::onUpdate(const sf::RenderWindow& window)
+    void BasicButton::onUpdate(const sf::RenderWindow& window, sf::Event e)
     {
-        m_button.testForInteration(window);
+        m_button.testForInteration(window, e);
     }
 
     void BasicButton::onDraw(sf::RenderWindow& window)

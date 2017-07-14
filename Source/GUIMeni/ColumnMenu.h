@@ -17,7 +17,7 @@ namespace GUI
         public:
             ColumnMenu(float startY);
 
-            void update(const sf::RenderWindow& window);
+            void update(const sf::RenderWindow& window, sf::Event e);
             void draw  (sf::RenderWindow& window);
 
             template<typename T, typename... Args>

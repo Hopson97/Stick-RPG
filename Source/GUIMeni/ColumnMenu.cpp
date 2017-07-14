@@ -9,11 +9,11 @@ namespace GUI
 
     }
 
-    void ColumnMenu::update(const sf::RenderWindow& window)
+    void ColumnMenu::update(const sf::RenderWindow& window, sf::Event e)
     {
         for (auto& comp : m_components)
         {
-            comp->update(window);
+            comp->update(window, e);
         }
     }
 

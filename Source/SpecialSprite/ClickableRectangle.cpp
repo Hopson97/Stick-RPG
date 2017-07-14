@@ -1,6 +1,6 @@
 #include "ClickableRectangle.h"
 
-
+#include <iostream>
 
 ClickableRectangle::ClickableRectangle(std::function<void(void)>onClick,
                                        std::function<void(void)>onRollover,
@@ -13,7 +13,7 @@ ClickableRectangle::ClickableRectangle(std::function<void(void)>onClick,
 
 }
 
-void ClickableRectangle::testForInteration(const sf::RenderWindow& window)
+void ClickableRectangle::testForInteration(const sf::RenderWindow& window, sf::Event e)
 {
     sf::Vector2f pos((float)sf::Mouse::getPosition(window).x,
                      (float)sf::Mouse::getPosition(window).y);
@@ -21,7 +21,7 @@ void ClickableRectangle::testForInteration(const sf::RenderWindow& window)
     if (getGlobalBounds().contains(pos))
     {
         m_onRollover();
-        if (sf::Mouse::isButtonPressed(sf::Mouse::Left))
+        if (isClick(e))
         {
             m_onClick();
         }
@@ -29,5 +29,17 @@ void ClickableRectangle::testForInteration(const sf::RenderWindow& window)
     else
     {
         m_onNoTouch();
+    }
+}
+
+bool ClickableRectangle::isClick(sf::Event e)
+{
+    if (e.type == sf::Event::MouseButtonPressed)
+    {
+        return (e.mouseButton.button == sf::Mouse::Left);
+    }
+    else
+    {
+        return false;
     }
 }

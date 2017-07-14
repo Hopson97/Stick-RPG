@@ -12,9 +12,11 @@ class ClickableRectangle : public sf::RectangleShape
                            std::function<void(void)> onRollover,
                            std::function<void(void)> onNoTouch);
 
-        void testForInteration(const sf::RenderWindow& window);
+        void testForInteration(const sf::RenderWindow& window, sf::Event e);
 
     private:
+        bool isClick(sf::Event e);
+
         std::function<void(void)> m_onClick;
         std::function<void(void)> m_onRollover;
         std::function<void(void)> m_onNoTouch;

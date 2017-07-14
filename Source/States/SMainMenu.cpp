@@ -23,7 +23,7 @@ namespace State
         m_frontMenu.addComponent<GUI::BasicButton>("Play",
         [&]()
         {
-
+            std::cout << "Play button pressed\n";
         });
 
         m_frontMenu.addComponent<GUI::BasicButton>("Settings",
@@ -51,7 +51,7 @@ namespace State
 
     void MainMenu::handleEvent(sf::Event e)
     {
-        m_frontMenu.update(m_pApplication->getWindow());
+        m_frontMenu.update(m_pApplication->getWindow(), e);
     }
 
     void MainMenu::update(float dt)
