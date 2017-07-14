@@ -1,4 +1,4 @@
-#include "ResourceManager/ResourceHolder.h"
+#include "ResourceHolder.h"
 
 ResourceHolder::ResourceHolder() noexcept
 :   textures        ("res/txrs/",   "png")

@@ -28,7 +28,10 @@ void Application::runMainLoop()
 
     while (m_window.isOpen())
     {
-        if (m_states.empty()) break;
+        if (m_states.empty())
+        {
+            break;
+        }
         auto& state         = currentState();
         auto currentTime    = timer.getElapsedTime();
         auto elapsed        = currentTime - lastTime;
@@ -58,10 +61,11 @@ const sf::RenderWindow& Application::getWindow() const
     return m_window;
 }
 
+bool shouldPopState = false;
 
 void Application::popState()
 {
-    m_states.pop_back();
+    shouldPopState = true;
 }
 
 
@@ -80,6 +84,12 @@ void Application::handleEvents()
             default:
                 break;
         }
+    }
+
+    if (shouldPopState)
+    {
+        m_states.pop_back();
+        shouldPopState = false;
     }
 }
 
