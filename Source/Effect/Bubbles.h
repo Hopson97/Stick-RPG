@@ -21,7 +21,7 @@ class Bubble
         sf::Clock   m_lifeTime;
         sf::Time    m_deathTime;
 
-        float ySpeed;
+        float m_speed;
 };
 
 #endif // BUBBLES_H_INCLUDED
