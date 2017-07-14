@@ -10,24 +10,32 @@
 namespace GUI
 {
     constexpr static int    BASE_WIDTH  = WINDOW_WIDTH / 2,
-                            BASE_HEIGHT = 50;
+                            BASE_HEIGHT = 64;
 
     class ColumnMenu
     {
         public:
-            ColumnMenu();
+            ColumnMenu(float startY);
 
-            void update();
+            void update(const sf::RenderWindow& window);
             void draw  (sf::RenderWindow& window);
 
             template<typename T, typename... Args>
             void addComponent(Args&&... args)
             {
                 m_components.push_back(std::make_unique<T>(std::forward<Args>(args)...));
+
+                initComponent(*m_components.back().get());
+
             }
 
         private:
+            void initComponent(Component& comp);
+
             std::vector<std::unique_ptr<GUI::Component>> m_components;
+
+            const float m_baseComponentX;
+            float m_yPosition = 0;
     };
 }
 

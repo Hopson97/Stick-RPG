@@ -4,8 +4,14 @@
 class Display
 {
     public:
+        static Display& get();
+
+        const sf::RenderWindow& getRaw() const;
+
+
 
     private:
+
 };
 
 

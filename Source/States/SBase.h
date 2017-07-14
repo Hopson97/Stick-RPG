@@ -19,7 +19,7 @@ namespace State
             virtual void fixedUpdate    (float dt) = 0;
             virtual void draw           (sf::RenderWindow& window) = 0;
 
-        private:
+        protected:
             Application* m_pApplication = nullptr;
     };
 }

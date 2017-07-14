@@ -65,6 +65,8 @@
 		<Unit filename="Source/ResourceManager/ResourceHolder.cpp" />
 		<Unit filename="Source/ResourceManager/ResourceHolder.h" />
 		<Unit filename="Source/ResourceManager/ResourceManager.h" />
+		<Unit filename="Source/SpecialSprite/ClickableRectangle.cpp" />
+		<Unit filename="Source/SpecialSprite/ClickableRectangle.h" />
 		<Unit filename="Source/States/SBase.cpp" />
 		<Unit filename="Source/States/SBase.h" />
 		<Unit filename="Source/States/SMainMenu.cpp" />

@@ -11,6 +11,7 @@ namespace State
 {
     MainMenu::MainMenu(Application& app)
     :   StateBase   (app)
+    ,   m_frontMenu (220.0f)
     {
         m_menuMusic.openFromFile("res/music/menu.ogg");
         m_menuMusic.play();
@@ -18,6 +19,24 @@ namespace State
 
         m_banner.setSize({(float)WINDOW_WIDTH, 200.0f});
         m_banner.setTexture(&ResourceHolder::getTexure("logo"));
+
+        m_frontMenu.addComponent<GUI::BasicButton>("Play",
+        [&]()
+        {
+
+        });
+
+        m_frontMenu.addComponent<GUI::BasicButton>("Settings",
+        [&]()
+        {
+
+        });
+
+        m_frontMenu.addComponent<GUI::BasicButton>("Exit",
+        [&]()
+        {
+
+        });
     }
 
     MainMenu::~MainMenu()
@@ -32,7 +51,7 @@ namespace State
 
     void MainMenu::handleEvent(sf::Event e)
     {
-
+        m_frontMenu.update(m_pApplication->getWindow());
     }
 
     void MainMenu::update(float dt)
@@ -55,6 +74,7 @@ namespace State
             bubble.draw(window);
         }
         window.draw(m_banner);
+        m_frontMenu.draw(window);
     }
 
 }

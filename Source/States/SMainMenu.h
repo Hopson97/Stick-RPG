@@ -7,6 +7,9 @@
 
 #include "SBase.h"
 
+#include "GUIMeni/BasicButton.h"
+#include "GUIMeni/ColumnMenu.h"
+
 #include "../Effect/Bubbles.h"
 
 class Application;
@@ -30,6 +33,8 @@ namespace State
             sf::RectangleShape m_banner;
 
             std::array<Bubble, 16> m_bubbles;
+
+            GUI::ColumnMenu m_frontMenu;
     };
 }
 

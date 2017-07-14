@@ -8,14 +8,14 @@ namespace GUI
     class Component
     {
         public:
-            void update();
+            void update(const sf::RenderWindow& window);
             void draw  (sf::RenderWindow& window);
 
             virtual void setPosition(const sf::Vector2f& position) = 0;
 
         private:
-            virtual void onUpdate(){}
-            virtual void onDraw  (){}
+            virtual void onUpdate(const sf::RenderWindow& window){}
+            virtual void onDraw  (sf::RenderWindow& window){}
     };
 }
 

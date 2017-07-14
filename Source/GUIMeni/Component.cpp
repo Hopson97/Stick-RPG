@@ -2,14 +2,14 @@
 
 namespace GUI
 {
-    void Component::update()
+    void Component::update(const sf::RenderWindow& window)
     {
-        onUpdate();
+        onUpdate(window);
     }
 
     void Component::draw(sf::RenderWindow& window)
     {
-        onDraw();
+        onDraw(window);
     }
 
 }

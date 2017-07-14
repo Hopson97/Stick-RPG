@@ -2,21 +2,27 @@
 #define BASICBUTTON_INCLUDED
 
 #include "Component.h"
+#include "../SpecialSprite/ClickableRectangle.h"
 
 namespace GUI
 {
     class BasicButton : public GUI::Component
     {
         public:
-            BasicButton();
+            BasicButton(std::string&& label, std::function<void(void)> onClick);
 
             void setPosition(const sf::Vector2f& position) override;
 
-            void onUpdate   () override;
-            void onDraw     (sf::RenderWindow& window);
+            void onUpdate   (const sf::RenderWindow& window) override;
+            void onDraw     (sf::RenderWindow& window) override;
 
         private:
-            sf::RectangleShape m_button;
+            void onTouch();
+            void onNoTouch();
+
+
+            ClickableRectangle m_button;
+            sf::Text m_label;
 
     };
 }
