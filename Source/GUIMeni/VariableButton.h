@@ -19,6 +19,8 @@ namespace GUI
             void onUpdate   (const sf::RenderWindow& window, sf::Event e) override;
             void onDraw     (sf::RenderWindow& window) override;
 
+            sf::FloatRect getBounds() const override;
+
         private:
             void onTouch();
             void onNoTouch();

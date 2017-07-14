@@ -16,6 +16,12 @@ namespace GUI
 
     void Banner::onDraw(sf::RenderWindow& window)
     {
-
+        window.draw(m_bannerSprite);
     }
+
+    sf::FloatRect Banner::getBounds() const
+    {
+        return m_bannerSprite.getGlobalBounds();
+    }
+
 }

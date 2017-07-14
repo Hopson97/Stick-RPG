@@ -14,6 +14,8 @@ namespace GUI
 
             void onDraw     (sf::RenderWindow& window) override;
 
+            sf::FloatRect getBounds() const override;
+
         private:
             sf::RectangleShape m_bannerSprite;
     };

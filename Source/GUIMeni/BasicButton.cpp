@@ -52,5 +52,11 @@ namespace GUI
         m_button.setFillColor(sf::Color::White);
     }
 
+    sf::FloatRect BasicButton::getBounds() const
+    {
+        return m_button.getGlobalBounds();
+    }
+
+
 
 }

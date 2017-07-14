@@ -9,20 +9,19 @@
 
 #include "GUIMeni/BasicButton.h"
 #include "GUIMeni/VariableButton.h"
+#include "GUIMeni/Banner.h"
+
 
 namespace State
 {
     MainMenu::MainMenu(Application& app)
     :   StateBase   (app)
-    ,   m_frontMenu         (220.0f)
+    ,   m_frontMenu         (0.0f)
     ,   m_statSelectionMenu (20.0f)
     {
         m_menuMusic.openFromFile("res/music/menu.ogg");
         m_menuMusic.play();
         m_menuMusic.setLoop(true);
-
-        m_banner.setSize({(float)WINDOW_WIDTH, 200.0f});
-        m_banner.setTexture(&ResourceHolder::getTexure("logo"));
 
         initMenu();
     }
@@ -51,21 +50,10 @@ namespace State
     }
 
     void MainMenu::fixedUpdate(float dt)
-    {
-
-    }
+    { }
 
     void MainMenu::draw(sf::RenderWindow& window)
     {
-        if (m_menuState == Menu_State::Front)
-        {
-            window.draw(m_banner);
-        }
-        else if (m_menuState == Menu_State::Attribute)
-        {
-
-        }
-
         for (auto& bubble : m_bubbles)
         {
             bubble.draw(window);
@@ -75,6 +63,9 @@ namespace State
 
     void MainMenu::initMenu()
     {
+        m_frontMenu.addComponent<GUI::Banner>(ResourceHolder::getTexure("logo"),
+                                              sf::Vector2f((float)WINDOW_WIDTH, GUI::BASE_HEIGHT * 1.5));
+
         m_frontMenu.addComponent<GUI::BasicButton>("Play",
         [&]()
         {

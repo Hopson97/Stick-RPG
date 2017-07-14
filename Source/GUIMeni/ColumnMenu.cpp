@@ -30,7 +30,7 @@ namespace GUI
         comp.setPosition({m_baseComponentX,
                           m_yPosition});
 
-        m_yPosition += BASE_HEIGHT * 1.5;
+        m_yPosition += comp.getBounds().height + 5;
     }
 
 }

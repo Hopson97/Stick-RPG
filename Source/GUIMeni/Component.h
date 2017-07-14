@@ -15,6 +15,8 @@ namespace GUI
 
             virtual void setPosition(const sf::Vector2f& position) = 0;
 
+            virtual sf::FloatRect getBounds() const = 0;
+
         private:
             virtual void onUpdate(const sf::RenderWindow& window, sf::Event e){}
             virtual void onDraw  (sf::RenderWindow& window){}

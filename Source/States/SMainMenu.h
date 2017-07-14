@@ -38,10 +38,8 @@ namespace State
             void initMenu();
 
             sf::Music m_menuMusic;
-            sf::RectangleShape m_banner;
 
             std::array<Bubble, 16> m_bubbles;
-
 
             GUI::ColumnMenu m_frontMenu;
             GUI::ColumnMenu m_statSelectionMenu;

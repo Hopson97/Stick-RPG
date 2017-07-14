@@ -62,8 +62,13 @@ namespace GUI
 
         window.draw(m_labelRect);
         window.draw(m_label);
-
     }
+
+    sf::FloatRect VariableButton::getBounds() const
+    {
+        return m_labelRect.getGlobalBounds();
+    }
+
 
     void VariableButton::onTouch()
     { }
