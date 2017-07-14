@@ -8,6 +8,8 @@ namespace GUI
     class Component
     {
         public:
+            virtual ~Component() = default;
+
             void update(const sf::RenderWindow& window, sf::Event e);
             void draw  (sf::RenderWindow& window);
 

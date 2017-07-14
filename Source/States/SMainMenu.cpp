@@ -35,7 +35,7 @@ namespace State
         m_frontMenu.addComponent<GUI::BasicButton>("Exit",
         [&]()
         {
-
+            m_pApplication->popState();
         });
     }
 

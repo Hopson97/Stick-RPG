@@ -24,6 +24,8 @@ class Application
             m_states.push_back(std::make_unique<T>(std::forward<Args>(args)...));
         }
 
+        void popState();
+
         const sf::RenderWindow& getWindow() const;
 
     private:
