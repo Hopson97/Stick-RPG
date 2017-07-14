@@ -8,13 +8,10 @@ Animation animation;
 
 namespace State
 {
-    StatePlaying::StatePlaying(Application& application)
+    StatePlaying::StatePlaying(Application& application, Levels& stats)
     :   StateBase (application)
     {
-        m_sprite.setTexture(&ResourceHolder::getTexure("test"));
-        m_sprite.setSize({32, 32});
 
-        animation.addFrames({16, 16}, {0, 0}, 4, sf::seconds(0.5));
     }
 
     void StatePlaying::handleInput()
@@ -29,7 +26,7 @@ namespace State
 
     void StatePlaying::update(float dt)
     {
-        m_sprite.setTextureRect(animation.getFrame());
+
     }
 
     void StatePlaying::fixedUpdate(float dt)
@@ -40,6 +37,5 @@ namespace State
     void StatePlaying::draw(sf::RenderWindow& window)
     {
 
-        window.draw(m_sprite);
     }
 }

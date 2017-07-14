@@ -5,12 +5,14 @@
 
 #include "SBase.h"
 
+class Levels;
+
 namespace State
 {
     class StatePlaying : public StateBase
     {
         public:
-            StatePlaying(Application& application);
+            StatePlaying(Application& application, Levels& stats);
 
             void handleInput    ();
             void handleEvent    (sf::Event e);
@@ -19,7 +21,7 @@ namespace State
             void draw           (sf::RenderWindow& window);
 
         private:
-            sf::RectangleShape m_sprite;
+
     };
 }
 

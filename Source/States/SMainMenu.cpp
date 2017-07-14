@@ -11,6 +11,8 @@
 #include "GUIMeni/VariableButton.h"
 #include "GUIMeni/Banner.h"
 
+#include "SPlaying.h"
+
 
 namespace State
 {
@@ -53,8 +55,9 @@ namespace State
         }
 
         m_skillPointsDisplay.setString("Stats: \n\
-         Intelligence: " + std::to_string(m_stats.intelligence) + "\n\
-         Charm:        " + std::to_string(m_stats.charm)        + "\n\
+         Intelligence:  " + std::to_string(m_stats.intelligence)    + "\n\
+         Charm:         " + std::to_string(m_stats.charm)           + "\n\
+         Strenth:       " + std::to_string(m_stats.strength)        + "\n\
          \nSkill Points Remaining: " + std::to_string(m_skillPoints));
     }
 
@@ -99,14 +102,22 @@ namespace State
         m_statSelectionMenu.addComponent<GUI::Banner>(ResourceHolder::getTexure("stat_ban"),
                                               sf::Vector2f((float)WINDOW_WIDTH, GUI::BASE_HEIGHT * 2));
 
-        m_statSelectionMenu.addComponent<GUI::BasicButton>("Continue To Game!",
+        m_statSelectionMenu.addComponent<GUI::BasicButton>("Confirm",
         [&]()
         {
+            if (m_skillPoints == 0)
+            {
+                m_menuMusic.stop();
+                m_menuState = Menu_State::Front;
+                m_activeMenu = &m_frontMenu;
+                m_pApplication->pushState<State::StatePlaying>(*m_pApplication, m_stats);
+            }
 
         });
 
-        addAttribute("Charm",           m_stats.charm);
         addAttribute("Intelligence",    m_stats.intelligence);
+        addAttribute("Charm",           m_stats.charm);
+        addAttribute("Strength",        m_stats.strength);
 
         m_statSelectionMenu.addComponent<GUI::BasicButton>("Back",
         [&]()

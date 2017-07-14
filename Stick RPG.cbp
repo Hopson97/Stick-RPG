@@ -60,6 +60,8 @@
 		<Unit filename="Source/DisplayManager.h" />
 		<Unit filename="Source/Effect/Bubbles.cpp" />
 		<Unit filename="Source/Effect/Bubbles.h" />
+		<Unit filename="Source/GUIMeni/Banner.cpp" />
+		<Unit filename="Source/GUIMeni/Banner.h" />
 		<Unit filename="Source/GUIMeni/BasicButton.cpp" />
 		<Unit filename="Source/GUIMeni/BasicButton.h" />
 		<Unit filename="Source/GUIMeni/ColumnMenu.cpp" />

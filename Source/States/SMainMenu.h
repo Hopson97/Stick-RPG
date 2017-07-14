@@ -47,8 +47,8 @@ namespace State
             GUI::ColumnMenu m_statSelectionMenu;
 
             sf::Text m_skillPointsDisplay;
-            int m_skillPoints = 10;
-            Stats m_stats;
+            int m_skillPoints = 20;
+            Levels m_stats;
 
             GUI::ColumnMenu* m_activeMenu = &m_frontMenu;
 
