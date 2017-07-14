@@ -3,23 +3,20 @@
 #include <iostream>
 
 #include "../Util/Random.h"
+#include "Application.h"
 
 #include "../ResourceManager/ResourceHolder.h"
 
 constexpr static int    SIZE            = 25,
-                        MIN_LIFE_SECS   = 6,
+                        MIN_LIFE_SECS   = 5,
                         MAX_LIFE_SECS   = 8;
 
-//bubble :o
 Bubble::Bubble()
 {
     auto red    = (sf::Uint8)Random::get().intInRange(175, 230);
     auto green  = (sf::Uint8)Random::get().intInRange(175, 230);
 
     m_sprite.setFillColor({red, green, 200});
-
-    m_sprite.setOutlineThickness(1);
-    m_sprite.setOutlineColor(sf::Color::Black);
     reset();
 }
 
@@ -73,8 +70,8 @@ void Bubble::reset()
     m_speed         =   Random::get().intInRange(  m_sprite.getRadius() - 5,
                                                     m_sprite.getRadius() + 5);
 
-    auto x = Random::get().floatInRange(0, 1280 - SIZE);
-    auto y = Random::get().floatInRange(SIZE, 350);
+    auto x = Random::get().floatInRange(0,      WINDOW_WIDTH - SIZE);
+    auto y = Random::get().floatInRange(SIZE,   WINDOW_HEIGHT);
 
     m_sprite.setPosition({x, y});
 

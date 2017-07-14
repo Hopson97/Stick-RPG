@@ -16,7 +16,7 @@ namespace State
         m_menuMusic.play();
         m_menuMusic.setLoop(true);
 
-        m_banner.setSize({ (float)app.getWindow().getSize().x, 200.0f});
+        m_banner.setSize({(float)WINDOW_WIDTH, 200.0f});
         m_banner.setTexture(&ResourceHolder::getTexure("logo"));
     }
 

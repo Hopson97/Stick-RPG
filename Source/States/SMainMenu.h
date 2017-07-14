@@ -29,7 +29,7 @@ namespace State
             sf::Music m_menuMusic;
             sf::RectangleShape m_banner;
 
-            std::array<Bubble, 18> m_bubbles;
+            std::array<Bubble, 16> m_bubbles;
     };
 }
 

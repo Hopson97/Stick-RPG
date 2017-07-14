@@ -8,6 +8,9 @@
 
 #include "States/SBase.h"
 
+constexpr static int    WINDOW_WIDTH = 1280,
+                        WINDOW_HEIGHT = 720;
+
 class Application
 {
     public:

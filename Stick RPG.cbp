@@ -56,6 +56,12 @@
 		<Unit filename="Source/DisplayManager.h" />
 		<Unit filename="Source/Effect/Bubbles.cpp" />
 		<Unit filename="Source/Effect/Bubbles.h" />
+		<Unit filename="Source/GUIMeni/BasicButton.cpp" />
+		<Unit filename="Source/GUIMeni/BasicButton.h" />
+		<Unit filename="Source/GUIMeni/ColumnMenu.cpp" />
+		<Unit filename="Source/GUIMeni/ColumnMenu.h" />
+		<Unit filename="Source/GUIMeni/Component.cpp" />
+		<Unit filename="Source/GUIMeni/Component.h" />
 		<Unit filename="Source/ResourceManager/ResourceHolder.cpp" />
 		<Unit filename="Source/ResourceManager/ResourceHolder.h" />
 		<Unit filename="Source/ResourceManager/ResourceManager.h" />
