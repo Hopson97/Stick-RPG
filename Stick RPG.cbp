@@ -35,6 +35,10 @@
 			</Target>
 		</Build>
 		<Compiler>
+			<Add option="-Wnon-virtual-dtor" />
+			<Add option="-Wredundant-decls" />
+			<Add option="-Wunreachable-code" />
+			<Add option="-Wzero-as-null-pointer-constant" />
 			<Add option="-Wall" />
 			<Add option="-std=c++14" />
 			<Add option="-fexceptions" />
@@ -62,6 +66,9 @@
 		<Unit filename="Source/GUIMeni/ColumnMenu.h" />
 		<Unit filename="Source/GUIMeni/Component.cpp" />
 		<Unit filename="Source/GUIMeni/Component.h" />
+		<Unit filename="Source/GUIMeni/VariableButton.cpp" />
+		<Unit filename="Source/GUIMeni/VariableButton.h" />
+		<Unit filename="Source/Player/Stats.h" />
 		<Unit filename="Source/ResourceManager/ResourceHolder.cpp" />
 		<Unit filename="Source/ResourceManager/ResourceHolder.h" />
 		<Unit filename="Source/ResourceManager/ResourceManager.h" />
