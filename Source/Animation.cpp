@@ -49,3 +49,9 @@ const sf::IntRect& Animation::getFrame()
 
     return  m_frames[m_currentFrame].frame;
 }
+
+const sf::IntRect& Animation::getFrame(int index) const
+{
+    return m_frames[index].frame;
+}
+

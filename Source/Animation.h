@@ -27,9 +27,12 @@ class Animation
                         sf::Time timeDifference);
 
 
+
+
         void addFrame (const sf::IntRect& frame, sf::Time timeToNextFrame);
 
         const sf::IntRect& getFrame();
+        const sf::IntRect& getFrame(int index) const;
 
     private:
         std::vector<Frame> m_frames;

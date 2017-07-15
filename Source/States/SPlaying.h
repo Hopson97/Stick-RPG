@@ -5,7 +5,9 @@
 
 #include "SBase.h"
 
-class Levels;
+#include "Player/Player.h"
+
+#include "../LevelRenderer.h"
 
 namespace State
 {
@@ -21,7 +23,14 @@ namespace State
             void draw           (sf::RenderWindow& window);
 
         private:
+            void loadLevel      ();
 
+            std::vector<sf::RectangleShape> m_road;
+
+            Player m_player;
+
+            sf::View m_viewingArea;
+            LevelRenderer m_levelRenderer;
     };
 }
 

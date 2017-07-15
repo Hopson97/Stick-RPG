@@ -105,7 +105,8 @@ namespace State
         m_statSelectionMenu.addComponent<GUI::BasicButton>("Confirm",
         [&]()
         {
-            if (m_skillPoints == 0)
+            ///@TODO Uncomment this line
+            //if (m_skillPoints == 0)
             {
                 m_menuMusic.stop();
                 m_menuState = Menu_State::Front;

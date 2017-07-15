@@ -46,6 +46,8 @@ void Bubble::doFade()
     auto timeLived = m_lifeTime.getElapsedTime().asSeconds();
     auto deathTime = m_deathTime.asSeconds();
 
+    //1 cycle = time * halfPi / lifespan
+    //* 2 to half the cycle
     auto result = std::sin((timeLived * (halfPi / deathTime)) * 2 );
 
     auto alphaValue = result * 255;
